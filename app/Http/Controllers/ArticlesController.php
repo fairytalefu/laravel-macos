@@ -32,7 +32,7 @@ class ArticlesController extends Controller
     {
         return view('articles.create');
     }
-    public function store(Request $request)
+    public function store(Requests\CreateArticleRequest $request)
     {
         //dd($request->all());
         //dd($request->get('title'));
