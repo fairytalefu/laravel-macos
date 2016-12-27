@@ -12,7 +12,7 @@ class ArticlesController extends Controller
     //
     public function index()
     {
-        $articles=Article::latest()->get();
+        $articles=Article::latest()->published()->get();
         return view('articles.index',compact('articles',$articles));
         //return 'articles pages';
     }
@@ -24,7 +24,6 @@ class ArticlesController extends Controller
         if(is_null($article)){
             abort(404);
         }*/
-
         $article = Article::findOrFail($id);
         //dd($article);
        return view('articles.show',compact('article',$article));
@@ -38,7 +37,7 @@ class ArticlesController extends Controller
         //dd($request->all());
         //dd($request->get('title'));
         $input=$request->all();
-        $input['published_at']=Carbon::now();
+        //$input['published_at']=Carbon::now();
         Article::create($input);
         return redirect('/articles');
     }
