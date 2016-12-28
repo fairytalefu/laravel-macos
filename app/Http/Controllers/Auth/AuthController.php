@@ -41,6 +41,7 @@ class AuthController extends Controller
     }
 
     /**
+     *
      * Get a validator for an incoming registration request.
      *
      * @param  array  $data
