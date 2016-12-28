@@ -37,6 +37,12 @@ class ArticlesController extends Controller
         $article = Article::findOrFail($id);
         return view('articles.edit',compact('article',$article));
     }
+    public function update(Requests\CreateArticleRequest $request,$id)
+    {
+        $article = Article::findOrFail($id);
+        $article->update($request->all());
+        return redirect('/articles');
+    }
     public function store(Requests\CreateArticleRequest $request)
     {
         //dd($request->all());
